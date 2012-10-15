@@ -20,8 +20,8 @@ variable::
     package-name = plone.app.foo
     package-extras = [test]
 
-If you want to do `continuous integration`_ with `Travis CI`_ you should use
-``buildout.cfg`` like::
+If you want to do `continuous integration`_ with `Travis CI`_ you should
+create a ``buildout.cfg`` like::
 
     [buildout]
     extends = https://raw.github.com/collective/buildout.plonetest/master/travis-4.x.cfg
