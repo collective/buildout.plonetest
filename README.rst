@@ -3,7 +3,7 @@ Testing/development buildouts for Plone
 
 This contains a number of configuration files for using `zc.buildout`_ to
 quickly set up a testing/development environment for your package.  The
-intended usage it to create a ``buildout.cfg`` like::
+intended usage is to create a ``buildout.cfg`` like::
 
     [buildout]
     extends = https://raw.github.com/collective/buildout.plonetest/master/test-4.2.x.cfg
