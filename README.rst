@@ -30,4 +30,4 @@ create a ``buildout.cfg`` like::
 
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
-.. _`Travis CI`: travis-ci.org/
+.. _`Travis CI`: http://travis-ci.org/
