@@ -28,6 +28,19 @@ create a ``buildout.cfg`` like::
     package-name = plone.app.foo
     package-extras = [test]
 
+And a ``.travis.yml`` like::
+
+    language: python
+    python:
+      - "2.7"
+    install:
+      - mkdir -p buildout-cache/eggs
+      - mkdir -p buildout-cache/downloads
+      - python bootstrap.py -c travis.cfg
+      - bin/buildout -N -t 3 -c travis.cfg install download install
+      - bin/buildout -N -t 3 -c travis.cfg
+    script: bin/test
+
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`Travis CI`: http://travis-ci.org/
