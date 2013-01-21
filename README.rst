@@ -54,6 +54,13 @@ update your travis.cfg file like::
     package-src = src/plone/app/foo
     package-pep8-ignores = E501,W402,W801
     package-coverage = 80
+    parts+=
+        createzopecoverage
+        coverage-sh
+        flake8
+        python-validation-sh
+        css-validation-sh
+        js-validation-sh
 
 and update your travis.yml like::
 
