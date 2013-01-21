@@ -41,6 +41,56 @@ And a ``.travis.yml`` like::
       - bin/buildout -N -t 3 -c travis.cfg
     script: bin/test
 
+
+If you want to add quality assurance to your continuous integration you can
+update your travis.cfg file like::
+
+    [buildout]
+    extends =
+        https://raw.github.com/collective/buildout.plonetest/master/travis-4.x.cfg
+        https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
+    package-name = plone.app.foo
+    package-extras = [test]
+    package-src = src/plone/app/foo
+    package-pep8-ignores = E501,W402,W801
+
+and update your travis.yml like::
+
+    language: python
+    python: 2.7
+    env:
+      - TARGET=test
+      - TARGET=coverage.sh
+      - TARGET=python-validation.sh
+    
+    #  - TARGET=css-validation.sh
+    #  - TARGET=js-validation.sh
+    
+    # csslint and jshint dependencies, uncomment if needed
+    # before_install:
+    #  - sudo apt-get install ack-grep
+    #  - sudo apt-add-repository ppa:chris-lea/node.js -y
+    #  - sudo apt-get update 1>/dev/null
+    #  - sudo apt-get install nodejs npm -y
+    #
+    # csslint
+    #  - npm install csslint -g
+    #
+    # jshint
+    #  - npm install jshint -g
+    #
+    # robotframework or selenium
+    #  - export DISPLAY=:99.0
+    #  - sh -e /etc/init.d/xvfb start
+    
+    install: 
+      - mkdir -p buildout-cache/eggs
+      - mkdir -p buildout-cache/downloads
+      - python bootstrap.py -c travis.cfg
+      - bin/buildout -N -t 3 -c travis.cfg
+    
+    script: bin/$TARGET
+
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`Travis CI`: http://travis-ci.org/
