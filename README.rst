@@ -53,6 +53,7 @@ update your travis.cfg file like::
     package-extras = [test]
     package-src = src/plone/app/foo
     package-pep8-ignores = E501,W402,W801
+    package-coverage = 80
 
 and update your travis.yml like::
 
@@ -87,6 +88,7 @@ and update your travis.yml like::
       - mkdir -p buildout-cache/eggs
       - mkdir -p buildout-cache/downloads
       - python bootstrap.py -c travis.cfg
+      - bin/buildout -N -t 3 -c travis.cfg install download install
       - bin/buildout -N -t 3 -c travis.cfg
     
     script: bin/$TARGET
