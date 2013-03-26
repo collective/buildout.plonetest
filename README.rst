@@ -109,14 +109,37 @@ and update your travis.yml like::
 Testing in Travis CI with multiple versions of Plone
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Extend from the travis-multiversion.cfg configuration as follows:
+Add a travis.cfg file to your package; it has to look like this::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/travis-multiversion.cfg
-    package-name = plone.app.foo
+        https://raw.github.com/collective/buildout.plonetest/master/travis-4.x.cfg
+
+    package-name = collective.foo
     package-extras = [test]
+
+    allow-hosts +=
+        code.google.com
+        robotframework.googlecode.com
+
+Update your travis.yml file to look like this::
+
+    language: python
+    python: 2.7
+    env:
+      - PLONE_VERSION=4.2
+      - PLONE_VERSION=4.3
+    install:
+      - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
+      - mkdir -p buildout-cache/downloads
+      - python bootstrap.py -c travis.cfg
+      - bin/buildout -c travis.cfg -N -q -t 3
+    script: bin/test
+
+The trick here is to replace the extended configuration with the right one
+using the `sed`_ command.
 
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`Travis CI`: http://travis-ci.org/
+.. _`sed`: http://linux.about.com/od/commands/l/blcmdl1_sed.htm
