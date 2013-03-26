@@ -83,12 +83,9 @@ and update your travis.yml like::
     #  - TARGET=css-validation.sh
     #  - TARGET=js-validation.sh
     
-    # csslint and jshint dependencies, uncomment if needed
+    # csslint and jshint dependency, uncomment if needed
     # before_install:
     #  - sudo apt-get install ack-grep
-    #  - sudo apt-add-repository ppa:chris-lea/node.js -y
-    #  - sudo apt-get update 1>/dev/null
-    #  - sudo apt-get install nodejs npm -y
     #
     # csslint
     #  - npm install csslint -g
