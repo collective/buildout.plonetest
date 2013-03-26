@@ -42,7 +42,16 @@ And a ``.travis.yml`` like::
     script: bin/test
 
 
-If you want to add quality assurance to your continuous integration you can
+Other helpful configurations
+----------------------------
+
+.. Caution::
+    The following configurations are experimental and may change at any time.
+
+Quality Assurance
+^^^^^^^^^^^^^^^^^
+
+If you want to add Quality Assurance to your continuous integration you can
 update your travis.cfg file like::
 
     [buildout]
@@ -99,6 +108,17 @@ and update your travis.yml like::
       - bin/buildout -N -t 3 -c travis.cfg
     
     script: bin/$TARGET
+
+Testing in Travis CI with multiple versions of Plone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Extend from the travis-multiversion.cfg configuration as follows:
+
+    [buildout]
+    extends =
+        https://raw.github.com/collective/buildout.plonetest/master/travis-multiversion.cfg
+    package-name = plone.app.foo
+    package-extras = [test]
 
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
