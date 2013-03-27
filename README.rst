@@ -81,7 +81,7 @@ The trick here is to replace the extended configuration with the right one
 using the `sed`_ command.
 
 Experimental configurations
----------------------------
+===========================
 
 .. Caution::
     The following configurations are experimental and may change at any time.
@@ -89,7 +89,7 @@ Experimental configurations
 Quality Assurance
 ^^^^^^^^^^^^^^^^^
 
-.. Info::
+.. Note::
     Work on this configuration is being done right now in `another repo`_.
 
 If you want to add Quality Assurance to your continuous integration you can
