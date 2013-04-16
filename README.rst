@@ -144,5 +144,5 @@ and update your ``.travis.yml`` like::
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`Travis CI`: http://travis-ci.org/
-.. _`sed`: http://linux.about.com/od/commands/l/blcmdl1_sed.htm
+.. _`sed`: http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
 .. _`another repo`: https://github.com/hvelarde/qa
