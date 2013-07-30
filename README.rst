@@ -89,8 +89,9 @@ Experimental configurations
 Quality Assurance
 ^^^^^^^^^^^^^^^^^
 
-.. Note::
-    Work on this configuration is being done right now in `another repo`_.
+.. Caution::
+    The following configuration is deprecated in favor of
+    `plone.recipe.codeanalysis`_. Please use it and help us improving it.
 
 If you want to add Quality Assurance to your continuous integration you can
 update your ``travis.cfg`` file like::
@@ -145,4 +146,4 @@ and update your ``.travis.yml`` like::
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`Travis CI`: http://travis-ci.org/
 .. _`sed`: http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
-.. _`another repo`: https://github.com/hvelarde/qa
+.. _`plone.recipe.codeanalysis`: https://github.com/plone/plone.recipe.codeanalysis
