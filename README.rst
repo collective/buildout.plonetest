@@ -104,9 +104,9 @@ update your ``travis.cfg`` file like::
     package-extras = [test]
     package-src = src/plone/app/foo
     package-pep8-ignores = E501,W402,W801
-    package-coverage = 80
+    package-min-coverage = 80
     parts+=
-        createzopecoverage
+        createcoverage
         coverage-sh
         flake8
         python-validation-sh
