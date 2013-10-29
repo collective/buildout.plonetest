@@ -1,9 +1,12 @@
 Testing/development buildouts for Plone
 =======================================
 
-This contains a number of configuration files for using `zc.buildout`_ to
-quickly set up a testing/development environment for your package.  The
-intended usage is to create a ``buildout.cfg`` like::
+.. contents:: Conteúdo
+   :depth: 2
+
+This repository contains a number of configuration files for using
+`zc.buildout`_ to quickly set up a testing/development environment for your
+package.  The intended usage is to create a ``buildout.cfg`` like::
 
     [buildout]
     extends = https://raw.github.com/collective/buildout.plonetest/master/test-4.x.cfg
@@ -37,6 +40,29 @@ And a ``.travis.yml`` like::
       - python bootstrap.py -c travis.cfg
       - bin/buildout -N -t 3 -c travis.cfg
     script: bin/test
+
+i18ndude helper script to update po files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Include the following in your buildout configuration to create an i18ndude
+helper script to update the po files of your product::
+
+    [buildout]
+    parts =
+        ...
+        rebuild_i18n-sh
+
+    [rebuild_i18n-sh]
+    recipe = collective.recipe.template
+    url = https://raw.github.com/collective/buildout.plonetest/master/templates/rebuild_i18n.sh.in
+    output = ${buildout:directory}/bin/rebuild_i18n.sh
+    mode = 755
+
+After running 'bin/buildout' you will find a 'bin/rebuild_i18n.sh'; run the
+script and the po files will be updated.
+
+Domain name is taken from the ${buildout:package-name} variable; Plone domain
+is also included.
 
 Functional tests with Robot Framework and SeleniumLibrary in Travis CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
