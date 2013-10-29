@@ -44,7 +44,7 @@ And a ``.travis.yml`` like::
 i18ndude helper script to update po files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Include the following in your buildout configuration to create an i18ndude
+Include the following in your buildout configuration to create an `i18ndude`_
 helper script to update the po files of your product::
 
     [buildout]
@@ -154,7 +154,8 @@ and update your ``.travis.yml`` like::
     script: bin/$TARGET
 
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
-.. _`plone.recipe.codeanalysis`: https://github.com/plone/plone.recipe.codeanalysis
+.. _`i18ndude`: http://pypi.python.org/pypi/i18ndude/
+.. _`plone.recipe.codeanalysis`: http://pypi.python.org/pypi/plone.recipe.codeanalysis/
 .. _`sed`: http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
 .. _`Travis CI`: http://travis-ci.org/
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout/
