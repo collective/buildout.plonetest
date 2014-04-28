@@ -1,7 +1,7 @@
 Testing/development buildouts for Plone
 =======================================
 
-.. contents:: Conteúdo
+.. contents:: Content
    :depth: 2
 
 This repository contains a number of configuration files for using
