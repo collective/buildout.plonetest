@@ -1,5 +1,8 @@
 #! /bin/sh
 # see http://maurits.vanrees.org/weblog/archive/2010/10/i18n-plone-4 for more information
+echo "Use of this script is deprecated; use the inline version instead"
+echo "For more information, see:"
+echo "    https://github.com/collective/buildout.plonetest/issues/11"
 
 I18NDOMAIN="${buildout:package-name}"
 
