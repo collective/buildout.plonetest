@@ -7,7 +7,7 @@ echo "    https://github.com/collective/buildout.plonetest/issues/11"
 I18NDOMAIN="${buildout:package-name}"
 
 # find the locales dir
-LOCALES=`find . -type d | grep -m 1 "locales"`
+LOCALES=`find . -type d | grep "${buildout:package-name}" | grep -m 1 "locales"`
 SOURCE=`dirname $LOCALES`;
 
 # rebuild pot file for package's domain and merge it with any manual translations needed
