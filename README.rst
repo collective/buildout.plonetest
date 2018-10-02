@@ -138,7 +138,6 @@ and update your ``.travis.yml`` like::
     env:
       - TARGET=test
       - TARGET=coverage.sh
-      - TARGET=python-validation.sh
 
     install: 
       - mkdir -p buildout-cache/downloads
