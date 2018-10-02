@@ -130,6 +130,8 @@ update your ``travis.cfg`` file like::
         coverage-sh
         code-analysis
 
+and add and commit ``.coveragerc`` file 
+(see example at https://github.com/plone/plone.recipe.codeanalysis/blob/master/.coveragerc) 
 
 and update your ``.travis.yml`` like::
 
