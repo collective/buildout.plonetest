@@ -115,10 +115,6 @@ Experimental configurations
 Quality Assurance
 ^^^^^^^^^^^^^^^^^
 
-.. Note::
-    This configuration is deprecated in favor of `plone.recipe.codeanalysis`_.
-    Please use it and help us improving it.
-
 If you want to add Quality Assurance to your continuous integration you can
 update your ``travis.cfg`` file like::
 
@@ -134,8 +130,8 @@ update your ``travis.cfg`` file like::
     parts+=
         createcoverage
         coverage-sh
-        flake8
-        python-validation-sh
+        code-analysis
+
 
 and update your ``.travis.yml`` like::
 
