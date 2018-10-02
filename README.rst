@@ -124,8 +124,6 @@ update your ``travis.cfg`` file like::
         https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
     package-name = plone.app.foo
     package-extras = [test]
-    package-src = src/plone/app/foo
-    package-pep8-ignores = E501,W402,W801
     package-min-coverage = 80
     parts+=
         createcoverage
