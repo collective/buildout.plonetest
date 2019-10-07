@@ -39,15 +39,15 @@ And a ``.travis.yml`` like::
     cache:
       pip: true
       directories:
-      - eggs
+        - eggs
     before_install:
-    - virtualenv -p `which python` .
-    - bin/pip install -r requirements.txt
-    - bin/buildout -N -t 3 annotate
+      - virtualenv -p `which python` .
+      - bin/pip install -r requirements.txt
+      - bin/buildout -N -t 3 annotate
     install:
-    - bin/buildout -N -t 3
+      - bin/buildout -N -t 3
     script:
-    - bin/test
+      - bin/test
 
 .. ATTENTION::
    This repository also has ``travis-*.cfg`` files, that try to be faster by downloading the Plone universal installer.
@@ -128,7 +128,7 @@ The ``.travis.yml`` file should look like this::
     cache:
       pip: true
       directories:
-      - eggs
+        - eggs
     matrix:
       include:
         - python: "2.7"
@@ -144,14 +144,14 @@ The ``.travis.yml`` file should look like this::
       sudo: true
       fast_finish: true
     before_install:
-    - virtualenv -p `which python` .
-    - bin/pip install -r requirements.txt
-    - sed -ie "s#test-5.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
-    - bin/buildout -N -t 3 annotate
+      - virtualenv -p `which python` .
+      - bin/pip install -r requirements.txt
+      - sed -ie "s#test-5.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
+      - bin/buildout -N -t 3 annotate
     install:
-    - bin/buildout -N -t 3
+      - bin/buildout -N -t 3
     script:
-    - bin/test
+      - bin/test
 
 The trick here is to replace the extended configuration with the right one
 using the `sed`_ command.
@@ -193,18 +193,18 @@ and update your ``.travis.yml`` like::
     cache:
       pip: true
       directories:
-      - eggs
+        - eggs
     env:
       - TARGET=test
       - TARGET=coverage.sh
     before_install:
-    - virtualenv -p `which python` .
-    - bin/pip install -r requirements.txt
-    - bin/buildout -N -t 3 annotate
+      - virtualenv -p `which python` .
+      - bin/pip install -r requirements.txt
+      - bin/buildout -N -t 3 annotate
     install:
-    - bin/buildout -N -t 3
+      - bin/buildout -N -t 3
     script:
-    - bin/$TARGET
+      - bin/$TARGET
 
 .. _`continuous integration`: https://en.wikipedia.org/wiki/Continuous_integration
 .. _`i18ndude`: http://pypi.python.org/pypi/i18ndude/
