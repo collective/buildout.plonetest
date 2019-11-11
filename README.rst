@@ -35,7 +35,6 @@ And a ``.travis.yml`` like::
 
     language: python
     python: 2.7
-    sudo: false
     cache:
       pip: true
       directories:
@@ -124,7 +123,6 @@ The ``.travis.yml`` file should look like this::
     dist: bionic
     language: python
     python: 2.7
-    sudo: false
     cache:
       pip: true
       directories:
@@ -141,7 +139,6 @@ The ``.travis.yml`` file should look like this::
           env: PLONE_VERSION="5.2"
         - python: "3.7"
           env: PLONE_VERSION="5.2"
-      sudo: true
       fast_finish: true
     before_install:
       - virtualenv -p `which python` .
@@ -189,7 +186,6 @@ and update your ``.travis.yml`` like::
 
     language: python
     python: 2.7
-    sudo: false
     cache:
       pip: true
       directories:
