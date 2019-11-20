@@ -33,20 +33,10 @@ variable::
 If you want to do `continuous integration`_ with `Travis CI`_ you can use this same buildout config.
 And a ``.travis.yml`` like::
 
-    language: python
-    python: 2.7
-    cache:
-      pip: true
-      directories:
-        - eggs
-    before_install:
-      - virtualenv -p `which python` .
-      - bin/pip install -r requirements.txt
-      - bin/buildout -N -t 3 annotate
-    install:
-      - bin/buildout -N -t 3
-    script:
-      - bin/test
+    version: ~> 1.0
+    import: collective/buildout.plonetest:travis/default.yml@travis-imports
+    python: "2.7"
+    env: PLONE_VERSION=5.2
 
 .. ATTENTION::
    This repository also has ``travis-*.cfg`` files, that try to be faster by downloading the Plone universal installer.
@@ -120,13 +110,8 @@ These versions match a ``requirements.txt`` like this::
 
 The ``.travis.yml`` file should look like this::
 
-    dist: bionic
-    language: python
-    python: 2.7
-    cache:
-      pip: true
-      directories:
-        - eggs
+    version: ~> 1.0
+    import: collective/buildout.plonetest:travis/default.yml@travis-imports
     matrix:
       include:
         - python: "2.7"
@@ -137,16 +122,6 @@ The ``.travis.yml`` file should look like this::
           env: PLONE_VERSION="5.2"
         - python: "3.7"
           env: PLONE_VERSION="5.2"
-      fast_finish: true
-    before_install:
-      - virtualenv -p `which python` .
-      - bin/pip install -r requirements.txt
-      - sed -ie "s#test-5.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
-      - bin/buildout -N -t 3 annotate
-    install:
-      - bin/buildout -N -t 3
-    script:
-      - bin/test
 
 The trick here is to replace the extended configuration with the right one
 using the `sed`_ command.

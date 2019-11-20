@@ -18,3 +18,5 @@ after_script:
 after_success:
   - pip install -q coveralls
   - coveralls
+matrix:
+  fast_finish: true
