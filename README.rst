@@ -15,7 +15,7 @@ especially the various buildout configs and `.travis.yml <https://github.com/plo
 The intended usage is to create a ``buildout.cfg`` like::
 
     [buildout]
-    extends = https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+    extends = https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
     package-name = plone.app.foo
 
 Create a virtualenv and run buildout.
@@ -26,7 +26,7 @@ should declare them via the ``extras_require`` parameter of
 variable::
 
     [buildout]
-    extends = https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+    extends = https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
     package-name = plone.app.foo
     package-extras = [test]
 
@@ -54,8 +54,8 @@ helper script to update the po files of your product::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
-        https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/qa.cfg
     package-name = plone.app.foo
     package-extras = [test]
     parts+=
@@ -90,7 +90,7 @@ The ``buildout.cfg`` file in your package should look like this::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
 
     package-name = collective.foo
     package-extras = [test]
@@ -142,8 +142,8 @@ update your ``travis.cfg`` file like::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
-        https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/qa.cfg
     package-name = plone.app.foo
     package-extras = [test]
     package-min-coverage = 80
