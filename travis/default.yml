@@ -1,0 +1,20 @@
+version: ~> 1.0
+language: python
+sudo: false
+cache:
+  pip: true
+  directories:
+    - eggs
+before_install:
+  - pip install -r requirements.txt
+  - cp test-$PLONE_VERSION.cfg buildout.cfg
+  - buildout -N -t 3 annotate
+install:
+  - buildout -N -t 3
+script:
+  - bin/test --all
+after_script:
+  - bin/createcoverage --output-dir=parts/test/coverage
+after_success:
+  - pip install -q coveralls
+  - coveralls
