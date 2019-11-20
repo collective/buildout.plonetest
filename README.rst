@@ -163,7 +163,7 @@ Quality Assurance
 ^^^^^^^^^^^^^^^^^
 
 If you want to add Quality Assurance to your continuous integration you can
-update your ``travis.cfg`` file like::
+update your ``buildout.cfg`` file like::
 
     [buildout]
     extends =
