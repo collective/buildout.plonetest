@@ -6,11 +6,12 @@ cache:
   directories:
     - eggs
 before_install:
-  - pip install -r requirements.txt
-  - cp test-$PLONE_VERSION.cfg buildout.cfg
-  - buildout -N -t 3 annotate
+  - virtualenv -p `which python` .
+  - bin/pip install -r requirements.txt
+  - sed -ie "s#test-5.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
+  - bin/buildout -N -t 3 annotate
 install:
-  - buildout -N -t 3
+  - bin/buildout -N -t 3
 script:
   - bin/test --all
 after_script:
