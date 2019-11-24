@@ -14,10 +14,10 @@ install:
   - bin/buildout -N -t 3
 script:
   - bin/test --all
-after_script:
-  - bin/createcoverage --output-dir=parts/test/coverage
 after_success:
+  - bin/createcoverage --output-dir=parts/test/coverage
   - pip install -q coveralls
   - coveralls
 matrix:
   fast_finish: true
+  
