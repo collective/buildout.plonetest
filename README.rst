@@ -34,7 +34,7 @@ If you want to do `continuous integration`_ with `Travis CI`_ you can use this s
 And a ``.travis.yml`` like::
 
     version: ~> 1.0
-    import: collective/buildout.plonetest:travis/default.yml@travis-imports
+    import: collective/buildout.plonetest:travis/default.yml
     python: "2.7"
     env: PLONE_VERSION=5.2
 
@@ -111,7 +111,7 @@ These versions match a ``requirements.txt`` like this::
 The ``.travis.yml`` file should look like this::
 
     version: ~> 1.0
-    import: collective/buildout.plonetest:travis/default.yml@travis-imports
+    import: collective/buildout.plonetest:travis/default.yml
     matrix:
       include:
         - python: "2.7"
