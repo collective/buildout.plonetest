@@ -30,6 +30,10 @@ variable::
     package-name = plone.app.foo
     package-extras = [test]
 
+
+Testing in Travis CI
+^^^^^^^^^^^^^^^^^^^^
+
 If you want to do `continuous integration`_ with `Travis CI`_ you can use this same buildout config.
 And a ``.travis.yml`` like::
 
