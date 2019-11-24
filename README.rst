@@ -15,7 +15,7 @@ especially the various buildout configs and `.travis.yml <https://github.com/plo
 The intended usage is to create a ``buildout.cfg`` like::
 
     [buildout]
-    extends = https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+    extends = https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
     package-name = plone.app.foo
 
 Create a virtualenv and run buildout.
@@ -26,27 +26,17 @@ should declare them via the ``extras_require`` parameter of
 variable::
 
     [buildout]
-    extends = https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+    extends = https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
     package-name = plone.app.foo
     package-extras = [test]
 
 If you want to do `continuous integration`_ with `Travis CI`_ you can use this same buildout config.
 And a ``.travis.yml`` like::
 
-    language: python
-    python: 2.7
-    cache:
-      pip: true
-      directories:
-        - eggs
-    before_install:
-      - virtualenv -p `which python` .
-      - bin/pip install -r requirements.txt
-      - bin/buildout -N -t 3 annotate
-    install:
-      - bin/buildout -N -t 3
-    script:
-      - bin/test
+    version: ~> 1.0
+    import: collective/buildout.plonetest:travis/default.yml
+    python: "2.7"
+    env: PLONE_VERSION=5.2
 
 .. ATTENTION::
    This repository also has ``travis-*.cfg`` files, that try to be faster by downloading the Plone universal installer.
@@ -64,8 +54,8 @@ helper script to update the po files of your product::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
-        https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/qa.cfg
     package-name = plone.app.foo
     package-extras = [test]
     parts+=
@@ -100,7 +90,7 @@ The ``buildout.cfg`` file in your package should look like this::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
 
     package-name = collective.foo
     package-extras = [test]
@@ -120,13 +110,8 @@ These versions match a ``requirements.txt`` like this::
 
 The ``.travis.yml`` file should look like this::
 
-    dist: bionic
-    language: python
-    python: 2.7
-    cache:
-      pip: true
-      directories:
-        - eggs
+    version: ~> 1.0
+    import: collective/buildout.plonetest:travis/default.yml
     matrix:
       include:
         - python: "2.7"
@@ -137,16 +122,6 @@ The ``.travis.yml`` file should look like this::
           env: PLONE_VERSION="5.2"
         - python: "3.7"
           env: PLONE_VERSION="5.2"
-      fast_finish: true
-    before_install:
-      - virtualenv -p `which python` .
-      - bin/pip install -r requirements.txt
-      - sed -ie "s#test-5.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
-      - bin/buildout -N -t 3 annotate
-    install:
-      - bin/buildout -N -t 3
-    script:
-      - bin/test
 
 The trick here is to replace the extended configuration with the right one
 using the `sed`_ command.
@@ -167,8 +142,8 @@ update your ``buildout.cfg`` file like::
 
     [buildout]
     extends =
-        https://raw.github.com/collective/buildout.plonetest/master/test-5.x.cfg
-        https://raw.github.com/collective/buildout.plonetest/master/qa.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
+        https://raw.githubusercontent.com/collective/buildout.plonetest/master/qa.cfg
     package-name = plone.app.foo
     package-extras = [test]
     package-min-coverage = 80
