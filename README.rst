@@ -18,7 +18,11 @@ The intended usage is to create a ``buildout.cfg`` like::
     extends = https://raw.githubusercontent.com/collective/buildout.plonetest/master/test-5.x.cfg
     package-name = plone.app.foo
 
-Create a virtualenv and run buildout.
+Create a virtualenv and run buildout (mind the `-N`)::
+
+    python -m venv
+    bin/buildout -N
+
 This should give you a ``bin/test`` script, which can be used to
 run your package's tests.  If your tests have additional dependencies, you
 should declare them via the ``extras_require`` parameter of
@@ -66,8 +70,10 @@ helper script to update the po files of your product::
         i18ndude
         rebuild_i18n-sh
 
-After running ``bin/buildout`` you will find a ``bin/rebuild_i18n.sh``; run the
-script and the po files will be updated.
+After running ``bin/buildout -N``
+you will find a ``bin/rebuild_i18n.sh``;
+run the script
+and the po files will be updated.
 
 Domain name is taken from the ``${buildout:package-name}`` variable.
 The plone domain is also included.
