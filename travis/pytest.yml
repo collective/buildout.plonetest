@@ -1,0 +1,6 @@
+version: ~> 1.0
+import:
+- source: travis/default.yml
+  mode: deep_merge
+script:
+  - bin/pytest
