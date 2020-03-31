@@ -20,4 +20,3 @@ after_success:
   - coveralls
 matrix:
   fast_finish: true
-  
