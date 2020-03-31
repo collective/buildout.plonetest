@@ -21,4 +21,3 @@ after_success:
   - coveralls
 jobs:
   fast_finish: true
-  
