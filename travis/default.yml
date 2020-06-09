@@ -1,6 +1,7 @@
 version: ~> 1.0
 language: python
-sudo: false
+os: linux
+dist: xenial
 cache:
   pip: true
   directories:
