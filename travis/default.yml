@@ -19,6 +19,6 @@ after_success:
   - bin/createcoverage --output-dir=parts/test/coverage
   - pip install -q coveralls
   - coveralls
-matrix:
+jobs:
   fast_finish: true
   
