@@ -1,0 +1,33 @@
+name: 'buildout'
+description: 'Install python, virtualenv and buildout'
+inputs:
+  python-version:
+    required: true
+  plone-version:
+    required: true
+  github-token:
+    required: true
+  buildout-parts:
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Set up python
+      uses: actions/setup-python@v4.5.0
+      with:
+        token: ${{ inputs.github-token }}
+        python-version: ${{ inputs.python-version }}
+    - name: Caching
+      uses: actions/cache@v3.2.3
+      with:
+        path: |
+          eggs
+          ~/.cache/pip
+        key: cache-Py${{ inputs.python-version }}-Plone${{ inputs.plone-version }}
+    - name: Install venv
+      shell: bash
+      run: |
+        pip install virtualenv
+        virtualenv -p ${{ inputs.python-version }} .
+        bin/pip install -r requirements-${{ inputs.plone-version }}.txt
+        bin/buildout -c test-${{ inputs.plone-version }}.x.cfg install ${{ inputs.buildout-parts }}
